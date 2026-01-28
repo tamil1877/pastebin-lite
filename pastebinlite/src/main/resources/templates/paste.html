@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastebin Lite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            max-width: 800px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .meta {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Pastebin Lite</h2>
+
+    <pre th:text="${content}"></pre>
+
+    <div class="meta">
+        <div>Remaining Views: <span th:text="${remainingViews}"></span></div>
+        <div th:if="${expiresAt != null}">
+            Expires At: <span th:text="${expiresAt}"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
