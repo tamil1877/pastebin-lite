@@ -21,17 +21,15 @@ public class PasteController {
         this.service = service;
     }
 
-    // ==========================
-    // 1️⃣ HEALTH CHECK API
-    // ==========================
+    
+    //  HEALTH CHECK API
     @GetMapping("/healthz")
     public Map<String, Boolean> healthCheck() {
         return Map.of("ok", true);
     }
 
-    // ==========================
-    // 2️⃣ CREATE PASTE API
-    // ==========================
+    
+    //  CREATE PASTE API
     @PostMapping("/pastes")
     public Map<String, String> createPaste(
             @RequestBody Map<String, Object> body,
@@ -52,7 +50,7 @@ public class PasteController {
         String url = request.getScheme() + "://" +
                 request.getServerName() + ":" +
                 request.getServerPort() +
-                "/api/p/" + paste.getId();   // ⚠️ NOTE THIS PATH
+                "/api/p/" + paste.getId();   
 
         return Map.of(
                 "id", paste.getId(),
@@ -60,9 +58,8 @@ public class PasteController {
         );
     }
 
-    // ==========================
-    // 3️⃣ FETCH PASTE (JSON API)
-    // ==========================
+    
+    //  FETCH PASTE (JSON API)
     @GetMapping("/pastes/{id}")
     public Map<String, Object> fetchPaste(
             @PathVariable String id,
@@ -85,9 +82,7 @@ public class PasteController {
         );
     }
 
-    // ==========================
-    // 4️⃣ HTML VIEW (PASTEBIN LINK)
-    // ==========================
+    // HTML VIEW (PASTEBIN LINK)
     @GetMapping("/p/{id}")
     public ModelAndView viewPasteHtml(@PathVariable String id) {
 
