@@ -21,9 +21,9 @@ public class Paste {
     private Integer maxViews;
     private int viewCount;
 
-    // ======================
-    // GETTERS AND SETTERS
-    // ======================
+    
+    // USING GETTERS AND SETTERS
+
 
     public String getId() {
         return id;
